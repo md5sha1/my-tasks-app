@@ -1,0 +1,71 @@
+<!doctype html>
+
+<!-- Angular App -->
+<html ng-app="my-task-manager">
+<head>
+	<!-- meta -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1"><!-- Optimize mobile viewport -->
+
+	<title>My MEAN Task Manager</title>
+
+	<!-- style -->
+	<link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"><!-- load bootstrap -->
+	
+	<!-- scripts -->
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script><!-- load angular -->
+	<script src="js/controllers/main.js"></script> <!-- load up our controller -->
+	<script src="js/services/tasks.js"></script> <!-- load our task service -->
+	<script src="js/core.js"></script> <!-- load our main application -->
+
+</head>
+<!-- set controller and get tasks -->
+<body ng-controller="mainController">
+	<div class="container">
+
+		<!-- header and task count -->
+		<div class="h3 text-center">
+			<h2>My Task Manager </h2>
+			
+			<p class="label label-info"> Tasks Remaining: {{ tasks.length }}</p>
+		</div>
+
+		<!-- task list -->
+		<div id="task-list" class="row">
+			<div class="col-sm-4 col-sm-offset-4">
+
+				<!-- Loop over the tasks in $scope.task, deletetask() deletes a task -->
+				<div class="checkbox" ng-repeat="task in tasks">
+					<label>
+						<input type="checkbox" ng-click="deleteTask(task._id)"> {{ task.text }}
+					</label>
+				</div>
+
+				<p class="text-center" ng-show="loading">
+					<span class="fa fa-spinner fa-spin fa-3x"></span>
+				</p>
+
+			</div>
+		</div>
+
+		<!-- form to create task -->
+		<div id="task-form" class="row">
+			<div class="col-sm-8 col-sm-offset-2 text-center">
+				<form>
+					<div class="form-group">
+
+						<!-- bind this value to formData.text in Angular -->
+						<input type="text" class="form-control input-lg text-center" placeholder="Type tasks here" ng-model="formData.text">
+					</div>
+
+					<!-- createTask() creates new tasks -->
+					<button type="submit" class="btn btn-success btn-lg" ng-click="createTask()">Create Task</button>
+				</form>
+			</div>
+		</div>
+
+	</div>
+
+</body>
+</html>
