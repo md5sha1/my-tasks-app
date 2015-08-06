@@ -21,9 +21,9 @@ function getTasks(res){
 /**
  * @callback 
  * @throws {Object} err error message
- * if there is an error retrieving, send the error. nothing after res.send(err) will execute
- * @param {Object} tasks data returned from the Task data model
- * send the tasks data in json format
+ * @description if there is an error retrieving, send the error. nothing after res.send(err) will execute
+ * @param {Object} tasks data returned from the Task data model.
+ * Send the tasks data in json format
  */
 			if (err)
 				res.send(err)
@@ -48,7 +48,7 @@ module.exports = function(app) {
  * @callback 
  * @param {Object} req GET request
  * @param {Object} res response data
- * @description get all the tasks using mongoose object
+ * @description gets all the tasks using mongoose object
  */
 	getTasks(res);
 	});
@@ -62,8 +62,8 @@ module.exports = function(app) {
  * @callback 
  * @param {Object} req POST request
  * @param {Object} res response data
- * @description post a new task to the Task model and save
- * creates a Task using AJAX request from Angular
+ * @description posts a new task to the Task model and saves.
+ * Creates a Task using AJAX request from Angular,
  * retrieves all tasks to the client
  */
 	var task = new Task({
@@ -103,7 +103,7 @@ module.exports = function(app) {
  * @callback
  * @param {Object} req requested data
  * @param {Object} res response data
- * load the single view file, angular will handle the page changes on the front-end
+ * @description loads the single view file, angular will handle the page changes on the front-end
  */
 
 	app.get('*', function(req, res){

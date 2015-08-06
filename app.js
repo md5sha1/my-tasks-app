@@ -19,7 +19,6 @@ var app = express();
 
 
 /**
- * @description configuration for the express router middleware
  * @param {Object} express.static set the static files location /public/img will be /img for users
  * @param path {string} path
  * @param {Object} logger logs to the console in dev format
@@ -37,8 +36,8 @@ app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 app.use(methodOverride('X-HTTP-Method-Override')); 
 
 /**
- * @description create db connection
- * connect to mongoDB database on modulus.io
+ * @description creates db connection,
+ * connects to mongoDB database on modulus.io
  * @constant {Object} db
  * @constructor Task
  */
@@ -68,7 +67,7 @@ require('./app/routes.js')(app);
 var port = process.env.PORT || 9000;
 
 /**
- * @description Initialize the Server
+ * @description Initializes the Server
  * {@link http://localhost:9000 Localhost}
  */
 

@@ -4,7 +4,7 @@
  * @ngdoc module
  * @name  TaskController
  * @description 
- * injects the Tasks service into the main controller
+ * Injects the Tasks service into the main controller
  */
 
 angular.module('taskController', [])
@@ -24,8 +24,8 @@ angular.module('taskController', [])
 	 * @method  GET
 	 * @callback
 	 * @description 
-	 * When page loads, get all the Tasks and show them
-	 * Use the service to get all the Tasks
+	 * When page loads, gets all the Tasks and show them.
+	 * Uses the service to get all the Tasks
 	 */
 		Tasks.get()
 			.then(function(response) {
@@ -40,13 +40,13 @@ angular.module('taskController', [])
 	/**
 	 * @name createTask
 	 * @description 
-	 * When sumitting the create form, posts data to the Node API
+	 * When sumitting the create form, it posts data to the Node API.
 	 */
 		$scope.createTask = function() {
 
 	/**
 	 * @description
-	 * Validate the formData to make sure that something is there
+	 * Validates the formData to make sure that something is there,
 	 * if form is empty, nothing happens
 	 */
 			if ($scope.formData.text != undefined) {
@@ -65,9 +65,9 @@ angular.module('taskController', [])
 	/**
 	 * @param  {Expression} callback
 	 * @description
-	 * on successful creation calls the POST method to get all the Task data
-	 * clears the form so user can enter another
-	 * assigns new Task data
+	 * on successful creation calls the POST method to get all the Task data.
+	 * Clears the form so user can enter another.
+	 * Assigns new Task data
 	 */
 				.then(function(response) {
 					$scope.loading = false;
@@ -84,17 +84,17 @@ angular.module('taskController', [])
 		};
 
 	/**
-	 * @name  deleteTask
+	 * @name deleteTask
 	 * @method DELETE
 	 * @description 
-	 * Delete a Task after after checking it
+	 * Deletes a Task after after checking it
 	 */
 		$scope.deleteTask = function(id) {
 			$scope.loading = true;
 
 	/**
 	 * @description 
-	 * call the delete function from our service
+	 * calls the delete function from our service
 	 * @param {string} id a hexadecimal string
 	 * specified id to delete
 	 */
@@ -102,8 +102,8 @@ angular.module('taskController', [])
 	/**
 	 * @param  {Expression} callback
 	 * @description
-	 * on successful deletion calls the GET method to get all the Task data
-	 * assigns new Task data
+	 * on successful deletion calls the GET method to get all the Task data.
+	 * Assigns new Task data
 	 */			
 				.then(function(response) {
 					$scope.loading = false;	
