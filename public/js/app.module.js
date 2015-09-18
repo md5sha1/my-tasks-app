@@ -5,7 +5,7 @@
  * Injects taskController and taskService into the app module
  */
 
-angular.module('my-task-manager', ['taskController', 'taskService']);
+angular.module('my-task-manager', ['taskController', 'taskService', 'ngAnimate']);
 
 
 

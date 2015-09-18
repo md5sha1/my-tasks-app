@@ -14,7 +14,9 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"><!-- load bootstrap -->
 	
 	<!-- scripts -->
-	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script><!-- load angular -->
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-animate.js"></script>
+<!-- load angular -->
 	<script src="js/controllers/main.js"></script> <!-- load up our controller -->
 	<script src="js/services/tasks.js"></script> <!-- load our task service -->
 	<script src="js/app.module.js"></script> <!-- load our main application -->
@@ -36,8 +38,8 @@
 			<div class="col-sm-4 col-sm-offset-4">
 
 				<!-- Loop over the tasks in $scope.task, deletetask() deletes a task -->
-				<div class="checkbox" ng-repeat="task in tasks">
-					<label>
+				<div class="checkbox" ng-repeat="task in tasks" ng-animate="'animate'">
+
 						<input type="checkbox" ng-click="deleteTask(task._id)"> {{ task.text }}
 					</label>
 				</div>
